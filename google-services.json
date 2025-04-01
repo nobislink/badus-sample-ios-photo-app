@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "621559569225",
+    "project_id": "backyard-adus-automation",
+    "storage_bucket": "backyard-adus-automation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621559569225:android:fe133a74718969e8879898",
+        "android_client_info": {
+          "package_name": "com.nobislink.backyardadus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621559569225-hujrco8d7pehbarrb7mcbt3kjti21hp3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nobislink.backyardadus",
+            "certificate_hash": "e62b3c382f77aedc1e4fac37688e15189b490979"
+          }
+        },
+        {
+          "client_id": "621559569225-gglpqmia6oovilsknpk3inr23ih218n9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoyh7I7y6ayctEujqKCyWOSLA_t7XS-4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621559569225-gglpqmia6oovilsknpk3inr23ih218n9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Image } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -28,12 +29,23 @@ export default function RootLayout() {
   }
 
   return (
+    // <AuthProvider>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(clients)"
+          options={{
+            headerShown: true,
+            headerTitle: "Backyard ADUS",
+            headerLeft: () => <Image
+              source={require('../assets/images/logo.png')}
+              style={{ width: 40, height: 40, marginHorizontal: 2 }}
+            />,
+          }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
+    // </AuthProvider>
   );
 }
