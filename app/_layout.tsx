@@ -42,6 +42,10 @@ export default function RootLayout() {
             />,
           }}
         />
+        <Stack.Screen name="client/[clientId]" options={{
+          headerShown: true,
+          headerTitle: "Client Details",
+        }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

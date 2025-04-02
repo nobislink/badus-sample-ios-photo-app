@@ -1,3 +1,5 @@
+import { Client } from "@/types";
+import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -13,21 +15,16 @@ import {
   View
 } from "react-native";
 
-interface Client {
-  id: string;
-  dealname: string;
-  main_folder_id: string;
-  main_folder_link: string;
-}
-
 const ClientListScreen = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   const getClients = async () => {
     setLoading(true);
+
     try {
       const response = await fetch(
         "https://us-central1-backyard-adus-automation.cloudfunctions.net/getDeals"
@@ -69,7 +66,8 @@ const ClientListScreen = () => {
   );
 
   const handleClientPress = (client: Client) => {
-    console.log("Cliente seleccionado:", client.dealname);
+    console.log("Selected client:", client.dealname, client.id);
+    router.navigate(`/client/${client.id}`)
   };
 
   const renderClientItem = ({ item }: { item: Client; }) => (
@@ -118,7 +116,7 @@ const ClientListScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      {/* Mover el TextInput fuera del ListHeaderComponent */}
+      {/* Move the TextInput outside the ListHeaderComponent */}
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
@@ -126,7 +124,7 @@ const ClientListScreen = () => {
           value={searchQuery}
           onChangeText={setSearchQuery}
           underlineColorAndroid="transparent"
-          autoCapitalize="none" // Evita cambios automáticos en el texto
+          autoCapitalize="none" // Prevent automatic text modifications
         />
       </View>
       <FlatList
